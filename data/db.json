@@ -1,0 +1,14 @@
+{
+  "quizzes": [
+    {
+      "id": 1,
+      "title": "Mon premier quizz",
+      "creator": "Stefan"
+    },
+    {
+      "id": 2,
+      "title": "Mon second quizz",
+      "creator": "Marco"
+    }
+  ]
+}
