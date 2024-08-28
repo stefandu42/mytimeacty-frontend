@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Login } from "@/models/auth/login";
-import AuthService from "@/services/authService";
+import { Login } from "@/models/auth";
+import AuthService from "@/services/auth.service";
 import styles from "./loginForm.module.css";
 import { useRouter } from "next/navigation";
 

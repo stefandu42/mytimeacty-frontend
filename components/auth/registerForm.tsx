@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Register } from "@/models/auth/register";
-import AuthService from "@/services/authService";
+import { Register } from "@/models/auth";
+import AuthService from "@/services/auth.service";
 
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
