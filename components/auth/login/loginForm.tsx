@@ -5,6 +5,8 @@ import { Login } from "@/models/auth";
 import AuthService from "@/services/auth.service";
 import styles from "./loginForm.module.css";
 import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function LoginForm() {
   const [emailOrNickname, setOrNickname] = useState("");
@@ -28,7 +30,9 @@ export default function LoginForm() {
       }
       router.push("/homepage");
     } catch (err) {
-      setError("Login failed. Please check your credentials and try again.");
+      toast.error(
+        "La connexion a échoué. Veuillez vérifier vos identifiants et réessayer."
+      );
     }
   };
 
