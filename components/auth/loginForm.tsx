@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Login } from "@/models/auth";
 import AuthService from "@/services/auth.service";
-import styles from "./loginForm.module.css";
+import styles from "./auth.module.css";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +13,6 @@ export default function LoginForm() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
-  const [error, setError] = useState<string | null>(null);
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -95,8 +94,6 @@ export default function LoginForm() {
           Rester connecté ?
         </label>
       </div>
-
-      {error && <p className={styles.error}>{error}</p>}
 
       <button type="submit" className={styles.submitButton}>
         Connexion
