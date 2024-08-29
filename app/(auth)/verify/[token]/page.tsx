@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import AuthService from "@/services/auth.service";
-import styles from "@/components/auth/verifyPage.module.css";
+import styles from "@/styles/auth/verifyPage.module.css";
 import { useRouter } from "next/navigation";
 
-type Props = {
-  params: { token: string };
-};
+interface Props {
+  params: {
+    token: string;
+  };
+}
 
 export default function VerifyPage({ params }: Props) {
   const token = params.token;
@@ -25,7 +27,7 @@ export default function VerifyPage({ params }: Props) {
           setMessage(response); // Show success message or response
           setRedirecting(true); // Start redirect timer
         } catch (err) {
-          setError("Verification failed. Your link is expired or invalid.");
+          setError("Vérification échouée. Votre lien est invalide ou expiré.");
         }
       };
 
@@ -49,14 +51,14 @@ export default function VerifyPage({ params }: Props) {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.header}>Verify Your Account</h1>
+      <h1 className={styles.header}>Vérifier votre compte</h1>
       {message && (
         <div className={styles.messageContainer}>
           <p className={styles.successMessage}>{message}</p>
           {redirecting && (
             <p className={styles.redirectInfo}>
-              You will be redirected to the login page in {redirectTimer}{" "}
-              seconds.
+              Vous serez rediriger vers la page de connexion dans{" "}
+              {redirectTimer} secondes.
             </p>
           )}
         </div>
@@ -68,7 +70,7 @@ export default function VerifyPage({ params }: Props) {
             onClick={() => router.push("/login")}
             className={styles.retryButton}
           >
-            Go to Login
+            Aller à la page de connexion
           </button>
         </div>
       )}

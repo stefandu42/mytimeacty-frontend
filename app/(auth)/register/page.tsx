@@ -2,7 +2,7 @@
 
 import RegisterForm from "@/components/auth/registerForm";
 import Link from "next/link";
-import styles from "@/components/auth/auth.module.css";
+import styles from "@/styles/auth/auth.module.css";
 
 export default function RegisterPage() {
   return (

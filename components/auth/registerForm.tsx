@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import AuthService from "@/services/auth.service";
-import styles from "./auth.module.css";
+import styles from "@/styles/auth/auth.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 

@@ -1,6 +1,6 @@
 import LoginForm from "@/components/auth/loginForm";
 import Link from "next/link";
-import styles from "@/components/auth/auth.module.css";
+import styles from "@/styles/auth/auth.module.css";
 
 export default function LoginPage() {
   return (

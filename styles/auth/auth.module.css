@@ -4,9 +4,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  height: 100vh;
   background-color: #f3f4f6;
-  padding: 0 10%;
+  padding: 10%;
 }
 
 .card {
@@ -24,11 +24,8 @@
   transform: translateX(-50%);
   background-color: white;
   padding: 0.5rem 1rem;
-  border-top: 2px solid #d1d5db;
-  border-left: 2px solid #d1d5db;
-  border-right: 2px solid #d1d5db;
-  border-top-left-radius: 0.75rem;
-  border-top-right-radius: 0.75rem;
+  border: 2px solid #d1d5db;
+  border-radius: 0.75rem;
 }
 
 .header h2 {
