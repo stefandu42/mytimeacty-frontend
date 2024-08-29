@@ -27,7 +27,7 @@ export default function LoginForm() {
       } else {
         window.sessionStorage.setItem("token", token);
       }
-      router.push("/homepage");
+      router.push("/quizzes");
     } catch (err) {
       toast.error(
         "La connexion a échoué. Veuillez vérifier vos identifiants et réessayer."

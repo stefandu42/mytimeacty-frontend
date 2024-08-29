@@ -19,7 +19,7 @@ const UserService = {
     nickname: string = "",
     page: number = 0,
     size: number = 15
-  ) => {
+  ): Promise<{ content: UserDetails[]; totalPages: number }> => {
     try {
       const { data } = await apiClient.get<{
         content: UserDetails[];

@@ -1,0 +1,113 @@
+.quizzCard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 16px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  margin: 16px auto;
+  background-color: #f9f9f9;
+}
+
+.imageAndTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.quizzImage {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 16px;
+}
+
+.titleAndButton {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.playButton {
+  background-color: #0070f3;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 12px;
+}
+
+.playButton:hover {
+  background-color: #005bb5;
+}
+
+.labelsAndActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.levelLabel,
+.categoryLabel {
+  background-color: #eee;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-top: 4px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.creator {
+  font-size: 1rem;
+  color: #0070f3;
+  margin-right: 8px;
+}
+
+.creatorLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.emojiContainer {
+  display: flex;
+  gap: 8px;
+}
+
+.emoji {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.emojiStar {
+  color: #f5a623;
+}
+
+.emojiHeart {
+  color: #ff4400;
+}
+
+.emojiStar:hover {
+  color: #bc8937;
+}
+
+.emojiHeart:hover {
+  color: #b73100;
+}
