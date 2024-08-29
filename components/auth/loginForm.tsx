@@ -96,7 +96,7 @@ export default function LoginForm() {
       </div>
 
       <button type="submit" className={styles.submitButton}>
-        Connexion
+        Se connecter
       </button>
     </form>
   );

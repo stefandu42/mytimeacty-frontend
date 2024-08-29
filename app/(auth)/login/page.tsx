@@ -7,7 +7,7 @@ export default function LoginPage() {
     <div className={styles.container}>
       <div className={styles.card}>
         <div className={styles.header}>
-          <h2>Se connecter</h2>
+          <h2>Connexion</h2>
         </div>
         <LoginForm />
         <div className={styles.footer}>
