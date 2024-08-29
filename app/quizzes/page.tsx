@@ -1,13 +1,13 @@
 "use client";
 
 import QuizzCard from "@/components/quizzes/QuizzCard";
-import { Quizz } from "@/models/quizz";
+import { Quizz, QuizzWithLikeAndFavourite } from "@/models/quizz";
 import styles from "@/styles/quizzes/quizzesHome.module.css";
 import { useEffect, useState } from "react";
 import QuizzService from "@/services/quizzes.service";
 
 export default function QuizzesHome() {
-  const [quizzes, setQuizzes] = useState<Quizz[]>([]);
+  const [quizzes, setQuizzes] = useState<QuizzWithLikeAndFavourite[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   const fetchQuizzes = async () => {
@@ -23,7 +23,7 @@ export default function QuizzesHome() {
   };
 
   useEffect(() => {
-    fetchQuizzes(); // Appel de la fonction fetchQuizzes lors du montage du composant
+    fetchQuizzes();
   }, []);
 
   if (loading) {

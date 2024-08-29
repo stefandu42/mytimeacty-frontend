@@ -1,15 +1,15 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Quizz } from "@/models/quizz";
+import { QuizzWithLikeAndFavourite } from "@/models/quizz";
 import { getAuthToken } from "@/utils/authUtils";
 import styles from "@/styles/quizzes/quizzCard.module.css";
 import { FaHeart, FaRegHeart, FaStar, FaRegStar } from "react-icons/fa";
+import QuizzService from "@/services/quizzes.service";
 
 interface QuizzCardProps {
-  quizz: Quizz;
+  quizz: QuizzWithLikeAndFavourite;
 }
 export default function QuizzCard({ quizz }: QuizzCardProps) {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
@@ -22,6 +22,8 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
     if (token) {
       setIsLoggedIn(true);
     }
+    setIsFavourite(quizz.favourite);
+    setIsLiked(quizz.liked);
   }, []);
 
   const handlePlayClick = () => {
@@ -31,10 +33,14 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
 
   const handleFavourite = () => {
     setIsFavourite(!isFavourite);
+    if (!isFavourite) QuizzService.favouriteQuizz(quizz.idQuizz);
+    else QuizzService.unfavouriteQuizz(quizz.idQuizz);
   };
 
   const handleLike = () => {
     setIsLiked(!isLiked);
+    if (!isLiked) QuizzService.likeQuizz(quizz.idQuizz);
+    else QuizzService.unlikeQuizz(quizz.idQuizz);
   };
 
   const handleProfileClick = () => {

@@ -1,4 +1,4 @@
-import { Quizz } from "@/models/quizz";
+import { Quizz, QuizzWithLikeAndFavourite } from "@/models/quizz";
 import apiClient from "../axiosConfig"; // Assurez-vous que le chemin est correct
 
 const BASE_URL = "/quizzes";
@@ -20,10 +20,10 @@ const QuizzService = {
     nickname?: string,
     categoryLabel?: string,
     levelLabel?: string
-  ): Promise<{ content: Quizz[]; totalPages: number }> => {
+  ): Promise<{ content: QuizzWithLikeAndFavourite[]; totalPages: number }> => {
     try {
       const response = await apiClient.get<{
-        content: Quizz[];
+        content: QuizzWithLikeAndFavourite[];
         totalPages: number;
       }>(`${BASE_URL}`, {
         params: { page, size, title, nickname, categoryLabel, levelLabel },

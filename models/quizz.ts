@@ -17,3 +17,8 @@ export interface Quizz {
   level: QuizzLevel;
   createdAt: string;
 }
+
+export interface QuizzWithLikeAndFavourite extends Quizz {
+  liked: boolean;
+  favourite: boolean;
+}
