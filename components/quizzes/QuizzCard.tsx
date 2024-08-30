@@ -70,14 +70,12 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
       <div className={styles.labelsAndActions}>
         <div className={styles.labels}>
           <span
-            className={`${styles.levelLabel} ${getLevelClass(
-              quizz.level.label
-            )}`}
+            className={`${styles.label} ${getLevelClass(quizz.level.label)}`}
           >
             <IoStatsChart className={styles.icon} />
             {quizz.level.label}
           </span>
-          <span className={styles.categoryLabel}>
+          <span className={styles.label}>
             <BiSolidCategory className={styles.icon} />
             {quizz.category.label}
           </span>

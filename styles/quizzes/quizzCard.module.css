@@ -59,20 +59,20 @@
   gap: 5px;
 }
 
-.levelLabel {
+.label {
   display: inline-flex;
   align-items: center;
   padding: 4px 8px;
   border-radius: 4px;
-  font-weight: bold;
+  background-color: #2196f3;
   color: white;
+  font-weight: bold;
   margin-right: 5px;
   text-transform: capitalize;
   transition: transform 0.2s ease-in-out;
 }
 
-.levelLabel:hover,
-.categoryLabel:hover {
+.label:hover {
   transform: scale(1.1);
 }
 
@@ -86,19 +86,6 @@
 
 .levelHard {
   background-color: #f44336;
-}
-
-.categoryLabel {
-  display: inline-flex;
-  align-items: center;
-  padding: 4px 8px;
-  border-radius: 4px;
-  background-color: #2196f3;
-  color: white;
-  font-weight: bold;
-  margin-right: 5px;
-  text-transform: capitalize;
-  transition: transform 0.2s ease-in-out;
 }
 
 .icon {
