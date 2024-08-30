@@ -1,12 +1,12 @@
 .quizzesContainer {
-  padding: 0 5%; /* Add padding to the sides of the page */
+  padding: 0 5%;
 }
 
 .quizzesGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: center; /* Center the content */
+  justify-content: center;
 }
 
 .quizCard {
@@ -18,4 +18,11 @@
   .quizCard {
     flex: 1 1 100%; /* On smaller screens, make each card take the full width */
   }
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  padding-bottom: 20px;
 }
