@@ -21,7 +21,7 @@ export default function QuizzesHome() {
     } catch (error) {
       console.error("Erreur lors de la récupération des quizzes:", error);
     } finally {
-      setLoading(false); // Le chargement est terminé
+      setLoading(false);
     }
   };
 
@@ -46,19 +46,21 @@ export default function QuizzesHome() {
   }
 
   return (
-    <div className={styles.quizzesContainer}>
+    <div className={styles.container}>
       <h1>Liste des Quizzes</h1>
-      <div className={styles.quizzesGrid}>
-        {quizzes.map((quizz) => (
-          <QuizzCard key={quizz.idQuizz} quizz={quizz} />
-        ))}
-      </div>
-      <div className={styles.paginationContainer}>
-        <QuizzPagination
-          totalPages={totalPages}
-          currentPage={currentPage}
-          onPageChange={handlePageChange}
-        />
+      <div className={styles.quizzesContainer}>
+        <div className={styles.quizzesGrid}>
+          {quizzes.map((quizz) => (
+            <QuizzCard key={quizz.idQuizz} quizz={quizz} />
+          ))}
+        </div>
+        <div className={styles.paginationContainer}>
+          <QuizzPagination
+            totalPages={totalPages}
+            currentPage={currentPage}
+            onPageChange={handlePageChange}
+          />
+        </div>
       </div>
     </div>
   );

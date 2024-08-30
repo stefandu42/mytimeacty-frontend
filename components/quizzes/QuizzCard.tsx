@@ -8,6 +8,8 @@ import styles from "@/styles/quizzes/quizzCard.module.css";
 import { FaHeart, FaRegHeart, FaStar, FaRegStar } from "react-icons/fa";
 import QuizzService from "@/services/quizzes.service";
 import Link from "next/link";
+import { BiSolidCategory } from "react-icons/bi";
+import { IoStatsChart } from "react-icons/io5";
 
 interface QuizzCardProps {
   quizz: QuizzWithLikeAndFavourite;
@@ -39,6 +41,19 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
     else QuizzService.unlikeQuizz(quizz.idQuizz);
   };
 
+  const getLevelClass = (level: string) => {
+    switch (level.toLowerCase()) {
+      case "easy":
+        return styles.levelEasy;
+      case "medium":
+        return styles.levelMedium;
+      case "hard":
+        return styles.levelHard;
+      default:
+        return "";
+    }
+  };
+
   return (
     <div className={styles.quizzCard}>
       <div className={styles.imageAndTitle}>
@@ -54,8 +69,18 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
       </div>
       <div className={styles.labelsAndActions}>
         <div className={styles.labels}>
-          <span className={styles.levelLabel}>{quizz.level.label}</span>
-          <span className={styles.categoryLabel}>{quizz.category.label}</span>
+          <span
+            className={`${styles.levelLabel} ${getLevelClass(
+              quizz.level.label
+            )}`}
+          >
+            <IoStatsChart className={styles.icon} />
+            {quizz.level.label}
+          </span>
+          <span className={styles.categoryLabel}>
+            <BiSolidCategory className={styles.icon} />
+            {quizz.category.label}
+          </span>
         </div>
         <div className={styles.actions}>
           <span className={styles.creator}>

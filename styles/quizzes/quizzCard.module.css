@@ -56,14 +56,53 @@
 .labels {
   display: flex;
   flex-direction: column;
+  gap: 5px;
 }
 
-.levelLabel,
-.categoryLabel {
-  background-color: #eee;
+.levelLabel {
+  display: inline-flex;
+  align-items: center;
   padding: 4px 8px;
-  border-radius: 6px;
-  margin-top: 4px;
+  border-radius: 4px;
+  font-weight: bold;
+  color: white;
+  margin-right: 5px;
+  text-transform: capitalize;
+  transition: transform 0.2s ease-in-out;
+}
+
+.levelLabel:hover,
+.categoryLabel:hover {
+  transform: scale(1.1);
+}
+
+.levelEasy {
+  background-color: #4caf50;
+}
+
+.levelMedium {
+  background-color: #ff9800;
+}
+
+.levelHard {
+  background-color: #f44336;
+}
+
+.categoryLabel {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: capitalize;
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon {
+  margin-right: 4px;
 }
 
 .actions {

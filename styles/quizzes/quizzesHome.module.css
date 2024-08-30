@@ -1,23 +1,19 @@
-.quizzesContainer {
+.container {
   padding: 0 5%;
+}
+
+.quizzesContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding-bottom: 20px;
 }
 
 .quizzesGrid {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  justify-content: center;
-}
-
-.quizCard {
-  flex: 1 1 calc(50% - 16px); /* Make each card take up half the width minus gap */
-  max-width: 600px; /* Limit the max-width of each card */
-}
-
-@media (max-width: 768px) {
-  .quizCard {
-    flex: 1 1 100%; /* On smaller screens, make each card take the full width */
-  }
 }
 
 .paginationContainer {
