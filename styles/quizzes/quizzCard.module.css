@@ -1,9 +1,9 @@
 .quizzCard {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  border-radius: 1.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 16px;
-  border-radius: 8px;
   width: 100%;
   max-width: 600px;
   margin: 16px auto;
@@ -19,8 +19,8 @@
 .quizzImage {
   width: 150px;
   height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
+  object-fit: contain;
+  border-radius: 16px;
   margin-right: 16px;
 }
 
@@ -28,27 +28,23 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .title {
-  margin: 0;
   font-size: 1.3rem;
-  color: #333;
+  color: #4b5563;
 }
 
 .playButton {
-  background-color: #0070f3;
+  background-color: #6366f1;
   color: white;
   padding: 8px 16px;
-  border: none;
   border-radius: 4px;
-  cursor: pointer;
   margin-top: 12px;
 }
 
 .playButton:hover {
-  background-color: #005bb5;
+  background-color: #4f46e5;
 }
 
 .labelsAndActions {
@@ -66,7 +62,7 @@
 .categoryLabel {
   background-color: #eee;
   padding: 4px 8px;
-  border-radius: 4px;
+  border-radius: 6px;
   margin-top: 4px;
 }
 

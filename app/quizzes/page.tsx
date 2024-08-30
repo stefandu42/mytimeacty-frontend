@@ -1,6 +1,6 @@
 "use client";
 
-import QuizzCard from "@/components/quizzes/QuizzCard";
+import QuizzCard from "@/components/quizzes/quizzCard";
 import { Quizz, QuizzWithLikeAndFavourite } from "@/models/quizz";
 import styles from "@/styles/quizzes/quizzesHome.module.css";
 import { useEffect, useState } from "react";
@@ -13,7 +13,6 @@ export default function QuizzesHome() {
   const fetchQuizzes = async () => {
     try {
       const quizzesData = await QuizzService.getQuizzes();
-      console.log(quizzesData);
       setQuizzes(quizzesData.content); // Stocker les données dans l'état
     } catch (error) {
       console.error("Erreur lors de la récupération des quizzes:", error);

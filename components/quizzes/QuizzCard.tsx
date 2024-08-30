@@ -7,21 +7,17 @@ import { getAuthToken } from "@/utils/authUtils";
 import styles from "@/styles/quizzes/quizzCard.module.css";
 import { FaHeart, FaRegHeart, FaStar, FaRegStar } from "react-icons/fa";
 import QuizzService from "@/services/quizzes.service";
+import Link from "next/link";
 
 interface QuizzCardProps {
   quizz: QuizzWithLikeAndFavourite;
 }
 export default function QuizzCard({ quizz }: QuizzCardProps) {
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [isFavourite, setIsFavourite] = useState<boolean>(false);
   const router = useRouter();
 
   useEffect(() => {
-    const token = getAuthToken();
-    if (token) {
-      setIsLoggedIn(true);
-    }
     setIsFavourite(quizz.favourite);
     setIsLiked(quizz.liked);
   }, []);
@@ -41,10 +37,6 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
     setIsLiked(!isLiked);
     if (!isLiked) QuizzService.likeQuizz(quizz.idQuizz);
     else QuizzService.unlikeQuizz(quizz.idQuizz);
-  };
-
-  const handleProfileClick = () => {
-    router.push(`/profile/${quizz.creatorId}`);
   };
 
   return (
@@ -67,12 +59,12 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
         </div>
         <div className={styles.actions}>
           <span className={styles.creator}>
-            <a
+            <Link
               href={`/profile/${quizz.creatorId}`}
               className={styles.creatorLink}
             >
               {quizz.creatorNickname}
-            </a>
+            </Link>
           </span>
           <div className={styles.emojiContainer}>
             <span
