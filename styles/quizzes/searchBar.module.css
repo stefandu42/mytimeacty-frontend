@@ -77,7 +77,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 625px) {
   .searchBar {
     gap: 5px;
     flex-wrap: wrap;
