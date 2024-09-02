@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import ToastProvider from "@/providers/toast.provider";
+import Header from "@/components/header";
+import ReduxProvider from "@/providers/redux.provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ToastProvider>{children}</ToastProvider>
+        <ReduxProvider>
+          <ToastProvider>
+            <Header />
+            {children}
+          </ToastProvider>
+        </ReduxProvider>
       </body>
     </html>
   );

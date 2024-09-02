@@ -1,9 +1,10 @@
 export const getAuthToken = (): string | null => {
-  let token = window.localStorage.getItem("token");
-
-  if (!token) {
-    token = window.sessionStorage.getItem("token");
-  }
-
+  const token =
+    localStorage.getItem("token") || sessionStorage.getItem("token");
   return token;
+};
+
+export const clearToken = (): void => {
+  localStorage.removeItem("token");
+  sessionStorage.removeItem("token");
 };

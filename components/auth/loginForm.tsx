@@ -7,12 +7,16 @@ import styles from "@/styles/auth/auth.module.css";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AppDispatch } from "@/redux/store";
+import { useDispatch } from "react-redux";
+import { login } from "@/redux/authSlice";
 
 export default function LoginForm() {
   const [emailOrNickname, setOrNickname] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
+  const dispatch = useDispatch<AppDispatch>();
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -27,6 +31,7 @@ export default function LoginForm() {
       } else {
         window.sessionStorage.setItem("token", token);
       }
+      dispatch(login());
       router.push("/quizzes");
     } catch (err) {
       toast.error(
