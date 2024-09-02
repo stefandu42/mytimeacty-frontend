@@ -1,3 +1,4 @@
+import { getAuthToken } from "@/utils/authUtils";
 import { createSlice } from "@reduxjs/toolkit";
 
 interface AuthState {
@@ -5,7 +6,7 @@ interface AuthState {
 }
 
 const initialState: AuthState = {
-  isLoggedIn: false,
+  isLoggedIn: !!getAuthToken(),
 };
 
 const authSlice = createSlice({
