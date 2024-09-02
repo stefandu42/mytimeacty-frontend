@@ -7,6 +7,7 @@ import { QuizzCategory } from "@/models/quizz";
 import { QuizzLevel } from "@/models/quizz";
 import styles from "@/styles/quizzes/searchBar.module.css";
 import { useSearchParams } from "next/navigation";
+import { CiSearch } from "react-icons/ci";
 
 interface SearchBarProps {
   onSearch: (search: string, category: string, level: string) => void;
@@ -43,12 +44,13 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
     fetchCategoriesAndLevels();
   }, []);
 
-  const handleSearch = () => {
+  const handleSearchSubmit = (event: React.FormEvent) => {
+    event.preventDefault();
     onSearch(search, selectedCategory, selectedLevel);
   };
 
   return (
-    <div className={styles.searchBar}>
+    <form onSubmit={handleSearchSubmit} className={styles.searchBar}>
       <input
         type="text"
         placeholder="Search by title or by nickname..."
@@ -80,9 +82,10 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
           </option>
         ))}
       </select>
-      <button onClick={handleSearch} className={styles.searchButton}>
+      <button type="submit" className={styles.searchButton}>
+        <CiSearch />
         Search
       </button>
-    </div>
+    </form>
   );
 }
