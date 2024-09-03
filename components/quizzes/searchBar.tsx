@@ -9,6 +9,7 @@ import styles from "@/styles/quizzes/searchBar.module.css";
 import { useSearchParams } from "next/navigation";
 import { CiSearch } from "react-icons/ci";
 import Dropdown from "./dropdown";
+import Input from "../general/input";
 
 interface SearchBarProps {
   onSearch: (search: string, category: string, level: string) => void;
@@ -52,11 +53,11 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
 
   return (
     <form onSubmit={handleSearchSubmit} className={styles.searchBar}>
-      <input
-        type="text"
-        placeholder="Search by title or by nickname..."
+      <Input
+        id="search"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
+        placeholder="Search by title or by nickname..."
         className={styles.searchInput}
       />
       <Dropdown
