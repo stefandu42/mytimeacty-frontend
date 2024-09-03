@@ -5,6 +5,7 @@ import AuthService from "@/services/auth.service";
 import styles from "@/styles/auth/auth.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Input from "../general/input";
 
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
@@ -33,7 +34,7 @@ export default function RegisterForm() {
         <label htmlFor="email" className={styles.label}>
           Email:
         </label>
-        <input
+        <Input
           id="email"
           type="email"
           value={email}
@@ -47,9 +48,8 @@ export default function RegisterForm() {
         <label htmlFor="nickname" className={styles.label}>
           Pseudo:
         </label>
-        <input
+        <Input
           id="nickname"
-          type="text"
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
           className={styles.input}
@@ -62,7 +62,7 @@ export default function RegisterForm() {
           Mot de passe:
         </label>
         <div className="relative">
-          <input
+          <Input
             id="password"
             type={showPassword ? "text" : "password"}
             value={password}

@@ -10,6 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/authSlice";
+import Input from "../general/input";
 
 export default function LoginForm() {
   const [emailOrNickname, setOrNickname] = useState("");
@@ -46,9 +47,8 @@ export default function LoginForm() {
         <label htmlFor="emailOrNickname" className={styles.label}>
           Email ou pseudo:
         </label>
-        <input
+        <Input
           id="emailOrNickname"
-          type="text"
           value={emailOrNickname}
           onChange={(e) => setOrNickname(e.target.value)}
           className={styles.input}
@@ -61,7 +61,7 @@ export default function LoginForm() {
           Mot de passe:
         </label>
         <div className="relative">
-          <input
+          <Input
             id="password"
             type={showPassword ? "text" : "password"}
             value={password}
