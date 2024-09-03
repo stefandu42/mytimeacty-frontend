@@ -18,15 +18,15 @@ const QuizzService = {
     size: number = 15,
     title?: string,
     nickname?: string,
-    categoryLabel?: string,
-    levelLabel?: string
+    categoryId?: string,
+    levelId?: string
   ): Promise<{ content: QuizzWithLikeAndFavourite[]; totalPages: number }> => {
     try {
       const response = await apiClient.get<{
         content: QuizzWithLikeAndFavourite[];
         totalPages: number;
       }>(`${BASE_URL}`, {
-        params: { page, size, title, nickname, categoryLabel, levelLabel },
+        params: { page, size, title, nickname, categoryId, levelId },
       });
       return response.data;
     } catch (error) {

@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/quizzes/dropdown.module.css";
+import styles from "@/styles/general/dropdown.module.css";
 
 interface DropdownProps {
   options: { value: number; label: string }[];
@@ -18,7 +18,7 @@ export default function Dropdown({
     <select value={value} onChange={onChange} className={styles.dropdown}>
       <option value="">{placeholder}</option>
       {options.map((option) => (
-        <option key={option.value} value={option.label}>
+        <option key={option.value} value={option.value}>
           {option.label}
         </option>
       ))}

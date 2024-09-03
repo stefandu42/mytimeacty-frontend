@@ -1,0 +1,7 @@
+.title {
+  padding: 10px !important;
+  font-size: 16px !important;
+  border-radius: 4px !important;
+  border: 3px solid #6366f1 !important;
+  flex: 1 1 60%;
+}
