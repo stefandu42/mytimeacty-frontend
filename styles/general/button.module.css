@@ -27,3 +27,11 @@
 .primary:hover {
   background-color: #4f46e5;
 }
+
+.cancel {
+  background-color: #e45a5a;
+}
+
+.cancel:hover {
+  background-color: #e54646;
+}

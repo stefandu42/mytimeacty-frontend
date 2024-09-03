@@ -9,12 +9,15 @@ import Dropdown from "@/components/quizzes/dropdown";
 import CategoryService from "@/services/category.service";
 import LevelService from "@/services/level.service";
 import styles from "@/styles/quizzes/createQuizz.module.css";
+import Button from "../general/button";
 
 export default function CreateQuizz() {
   const [categories, setCategories] = useState<QuizzCategory[]>([]);
   const [levels, setLevels] = useState<QuizzLevel[]>([]);
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedLevel, setSelectedLevel] = useState("");
+  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const router = useRouter();
 
   const [quizzCreate, setQuizzCreate] = useState<QuizzCreate>({
     title: "",
@@ -34,8 +37,6 @@ export default function CreateQuizz() {
     ],
   });
 
-  const router = useRouter();
-
   useEffect(() => {
     const fetchCategoriesAndLevels = async () => {
       try {
@@ -54,6 +55,19 @@ export default function CreateQuizz() {
     fetchCategoriesAndLevels();
   }, []);
 
+  // Gestion de l'aperçu de l'image
+  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      //setQuizzCreate({ ...quizzCreate, img: file });
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   // Gestion de la soumission du formulaire
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -66,51 +80,83 @@ export default function CreateQuizz() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <Input
-        id="title"
-        value={quizzCreate.title}
-        onChange={(e) =>
-          setQuizzCreate({ ...quizzCreate, title: e.target.value })
-        }
-        placeholder="Enter the quizz title"
-        className={styles.title}
-        required
-      />
+    <div className={styles.container}>
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <div className={styles.imageContainer}>
+          {imagePreview ? (
+            <img
+              src={imagePreview}
+              alt="Selected"
+              className={styles.quizzImage}
+            />
+          ) : (
+            <div className={styles.placeholder}>No Image Selected</div>
+          )}
+        </div>
 
-      <Dropdown
-        options={categories.map((category) => ({
-          value: category.idCategory,
-          label: category.label,
-        }))}
-        value={String(quizzCreate.categoryId)}
-        onChange={(e) => {
-          setQuizzCreate({
-            ...quizzCreate,
-            categoryId: Number(e.target.value),
-          });
-          setSelectedCategory(e.target.value);
-        }}
-        placeholder="Select category"
-      />
+        <input
+          type="file"
+          onChange={handleImageChange}
+          accept="image/*"
+          className={styles.fileInput}
+        />
 
-      <Dropdown
-        options={levels.map((level) => ({
-          value: level.idLevel,
-          label: level.label,
-        }))}
-        value={String(quizzCreate.levelId)}
-        onChange={(e) => {
-          setQuizzCreate({ ...quizzCreate, levelId: Number(e.target.value) });
-          setSelectedLevel(e.target.value);
-          console.log(e.target.value);
-        }}
-        placeholder="Select level"
-      />
+        <Input
+          id="title"
+          value={quizzCreate.title}
+          onChange={(e) =>
+            setQuizzCreate({ ...quizzCreate, title: e.target.value })
+          }
+          placeholder="Enter the quizz title"
+          className={styles.title}
+          required
+        />
 
-      <input type="file" onChange={(e) => {}} accept="image/*" />
+        <Dropdown
+          options={categories.map((category) => ({
+            value: category.idCategory,
+            label: category.label,
+          }))}
+          value={String(quizzCreate.categoryId)}
+          onChange={(e) => {
+            setQuizzCreate({
+              ...quizzCreate,
+              categoryId: Number(e.target.value),
+            });
+            setSelectedCategory(e.target.value);
+          }}
+          placeholder="Select category"
+        />
 
-      <button type="submit">Create Quizz</button>
-    </form>
+        <Dropdown
+          options={levels.map((level) => ({
+            value: level.idLevel,
+            label: level.label,
+          }))}
+          value={String(quizzCreate.levelId)}
+          onChange={(e) => {
+            setQuizzCreate({ ...quizzCreate, levelId: Number(e.target.value) });
+            setSelectedLevel(e.target.value);
+            console.log(e.target.value);
+          }}
+          placeholder="Select level"
+        />
+
+        <div className={styles.buttonGroup}>
+          <Button
+            type="button"
+            className={styles.cancelButton}
+            variant="cancel"
+            onClick={() => router.push("/quizzes")}
+          >
+            Cancel
+          </Button>
+
+          <Button type="submit" className={styles.submitButton}>
+            Create Quizz
+          </Button>
+        </div>
+      </form>
+    </div>
   );
 }
