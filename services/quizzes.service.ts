@@ -1,12 +1,12 @@
-import { Quizz, QuizzWithLikeAndFavourite } from "@/models/quizz";
+import { Quizz, QuizzCreate, QuizzWithLikeAndFavourite } from "@/models/quizz";
 import apiClient from "../axiosConfig"; // Assurez-vous que le chemin est correct
 
 const BASE_URL = "/quizzes";
 
 const QuizzService = {
-  createQuizz: async (quizzCreateDTO: any): Promise<Quizz> => {
+  createQuizz: async (quizzCreate: QuizzCreate): Promise<Quizz> => {
     try {
-      const response = await apiClient.post(`${BASE_URL}`, quizzCreateDTO);
+      const response = await apiClient.post(`${BASE_URL}`, quizzCreate);
       return response.data;
     } catch (error) {
       throw new Error("Failed to create quizz");

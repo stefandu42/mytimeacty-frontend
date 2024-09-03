@@ -22,3 +22,25 @@ export interface QuizzWithLikeAndFavourite extends Quizz {
   liked: boolean;
   favourite: boolean;
 }
+
+// Creation
+
+export interface QuizzCreateAnswer {
+  answer: string;
+  numAnswer: number;
+  isCorrect: boolean;
+}
+
+export interface QuizzCreateQuestion {
+  question: string;
+  numQuestion: number;
+  answers: QuizzCreateAnswer[];
+}
+
+export interface QuizzCreate {
+  title: string;
+  levelId: number;
+  categoryId: number;
+  img: string | null;
+  questions: QuizzCreateQuestion[];
+}
