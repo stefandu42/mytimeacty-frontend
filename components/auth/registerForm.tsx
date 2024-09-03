@@ -6,6 +6,7 @@ import styles from "@/styles/auth/auth.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Input from "../general/input";
+import Button from "../general/button";
 
 export default function RegisterForm() {
   const [email, setEmail] = useState("");
@@ -88,9 +89,9 @@ export default function RegisterForm() {
         </div>
       </div>
 
-      <button type="submit" className={styles.submitButton}>
+      <Button type="submit" className={styles.submitButton}>
         S'inscrire
-      </button>
+      </Button>
     </form>
   );
 }

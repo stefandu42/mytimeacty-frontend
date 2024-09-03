@@ -9,6 +9,7 @@ import QuizzService from "@/services/quizzes.service";
 import Link from "next/link";
 import { BiSolidCategory } from "react-icons/bi";
 import { IoStatsChart } from "react-icons/io5";
+import Button from "../general/button";
 
 interface QuizzCardProps {
   quizz: QuizzWithLikeAndFavourite;
@@ -22,11 +23,6 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
     setIsFavourite(quizz.favourite);
     setIsLiked(quizz.liked);
   }, []);
-
-  const handlePlayClick = () => {
-    console.log("play");
-    //router.push(`/play/${quizz.idQuizz}`);
-  };
 
   const handleFavourite = () => {
     setIsFavourite(!isFavourite);
@@ -63,7 +59,13 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
         />
         <div className={styles.titleAndButton}>
           <h3 className={styles.title}>{quizz.title}</h3>
-          <button className={styles.playButton}>Jouer</button>
+          <Button
+            className={styles.playButton}
+            variant="primary"
+            onClick={() => router.push(`/play/${quizz.idQuizz}`)}
+          >
+            Jouer
+          </Button>
         </div>
       </div>
       <div className={styles.labelsAndActions}>

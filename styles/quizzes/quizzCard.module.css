@@ -36,15 +36,8 @@
 }
 
 .playButton {
-  background-color: #6366f1;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 4px;
   margin-top: 12px;
-}
-
-.playButton:hover {
-  background-color: #4f46e5;
+  font-size: 1rem !important;
 }
 
 .labelsAndActions {

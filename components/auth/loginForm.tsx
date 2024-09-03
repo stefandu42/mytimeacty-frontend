@@ -11,6 +11,7 @@ import { AppDispatch } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { login } from "@/redux/authSlice";
 import Input from "../general/input";
+import Button from "../general/button";
 
 export default function LoginForm() {
   const [emailOrNickname, setOrNickname] = useState("");
@@ -100,9 +101,9 @@ export default function LoginForm() {
         </label>
       </div>
 
-      <button type="submit" className={styles.submitButton}>
+      <Button type="submit" className={styles.submitButton}>
         Se connecter
-      </button>
+      </Button>
     </form>
   );
 }
