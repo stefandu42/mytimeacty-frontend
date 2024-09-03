@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { QuizzWithLikeAndFavourite } from "@/models/quizz";
-import { getAuthToken } from "@/utils/authUtils";
 import styles from "@/styles/quizzes/quizzCard.module.css";
 import { FaHeart, FaRegHeart, FaStar, FaRegStar } from "react-icons/fa";
 import QuizzService from "@/services/quizzes.service";

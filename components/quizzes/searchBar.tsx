@@ -8,6 +8,7 @@ import { QuizzLevel } from "@/models/quizz";
 import styles from "@/styles/quizzes/searchBar.module.css";
 import { useSearchParams } from "next/navigation";
 import { CiSearch } from "react-icons/ci";
+import Dropdown from "./dropdown";
 
 interface SearchBarProps {
   onSearch: (search: string, category: string, level: string) => void;
@@ -58,30 +59,25 @@ export default function SearchBar({ onSearch }: SearchBarProps) {
         onChange={(e) => setSearch(e.target.value)}
         className={styles.searchInput}
       />
-      <select
+      <Dropdown
+        options={categories.map((category) => ({
+          value: category.idCategory,
+          label: category.label,
+        }))}
         value={selectedCategory}
         onChange={(e) => setSelectedCategory(e.target.value)}
-        className={styles.dropdown}
-      >
-        <option value="">All categories</option>
-        {categories.map((category) => (
-          <option key={category.idCategory} value={category.label}>
-            {category.label}
-          </option>
-        ))}
-      </select>
-      <select
+        placeholder="All categories"
+      />
+
+      <Dropdown
+        options={levels.map((level) => ({
+          value: level.idLevel,
+          label: level.label,
+        }))}
         value={selectedLevel}
         onChange={(e) => setSelectedLevel(e.target.value)}
-        className={styles.dropdown}
-      >
-        <option value="">All levels</option>
-        {levels.map((level) => (
-          <option key={level.idLevel} value={level.label}>
-            {level.label}
-          </option>
-        ))}
-      </select>
+        placeholder="All levels"
+      />
       <button type="submit" className={styles.searchButton}>
         <CiSearch />
         Search
