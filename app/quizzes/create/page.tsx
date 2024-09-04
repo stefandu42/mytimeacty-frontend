@@ -1,4 +1,4 @@
-import CreateQuizz from "@/components/quizzes/createQuizz";
+import CreateQuizz from "@/components/quizzes/create/createQuizz";
 
 export const metadata = {
   title: "Create",

@@ -29,7 +29,6 @@
   height: 150px;
   object-fit: contain;
   border-radius: 16px;
-  border: 2px solid #6366f1;
   margin-right: 16px;
 }
 
@@ -39,14 +38,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 2px dashed #6366f1;
-  border-radius: 16px;
   color: #888;
   font-size: 14px;
-}
-
-.fileInput {
-  margin-bottom: 20px;
 }
 
 .title {
@@ -58,13 +51,18 @@
   margin-bottom: 20px;
 }
 
+.dropdowns {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
 .submitButton,
 .cancelButton {
   font-size: 1rem;
   padding: 10px 20px;
   border-radius: 8px;
   margin: 10px;
-  cursor: pointer;
 }
 
 .submitButton {
@@ -79,8 +77,53 @@
   border: 1px solid #6366f1;
 }
 
+.cancelButton:hover {
+  background-color: #e1e1e1;
+}
+
+.addButton {
+  display: flex;
+  align-items: center;
+}
+
+.addButton svg {
+  font-size: 1.2em;
+}
+
 .buttonGroup {
   display: flex;
   justify-content: center;
-  width: 100%;
+  width: 20px;
+}
+
+.fileInput {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.imagePreviewContainer {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.quizzImage {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  border-radius: 16px;
+  margin-right: 16px;
+  border: 2px solid #ccc;
+}
+
+.placeholderImage {
+  width: 150px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #888;
+  border-radius: 16px;
+  border: 2px dashed #ccc;
 }

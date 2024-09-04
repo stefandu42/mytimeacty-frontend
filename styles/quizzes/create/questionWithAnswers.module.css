@@ -1,0 +1,60 @@
+.questionContainer {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.questionHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.deleteButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  margin-left: 10px;
+  color: #ff6b6b;
+}
+
+.questionInput {
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #6366f1;
+  border-radius: 4px;
+  outline: none;
+}
+
+.answersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.answerRow {
+  display: flex;
+  align-items: center;
+}
+
+.answerInput {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  outline: none;
+  margin-right: 10px;
+}
+
+.correctAnswerRadio {
+  margin-right: 5px;
+}
+
+.correctLabel {
+  font-size: 14px;
+  color: #4b5563;
+  margin-left: 5px;
+}
