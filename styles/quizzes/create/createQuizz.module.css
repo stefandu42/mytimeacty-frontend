@@ -84,16 +84,18 @@
 .addButton {
   display: flex;
   align-items: center;
+  height: 40px;
 }
 
 .addButton svg {
   font-size: 1.2em;
+  margin-right: 8px;
 }
 
 .buttonGroup {
   display: flex;
   justify-content: center;
-  width: 20px;
+  width: auto;
 }
 
 .fileInput {
