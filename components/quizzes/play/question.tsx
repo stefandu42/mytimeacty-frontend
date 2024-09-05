@@ -5,12 +5,16 @@ import styles from "@/styles/quizzes/play/question.module.css";
 interface QuestionProps {
   question: Question;
   selectedAnswer: number | undefined;
-  onAnswerChange: (questionId: number, answerId: number) => void;
+  correctAnswerId?: number;
+  isResultPage?: boolean;
+  onAnswerChange?: (questionId: number, answerId: number) => void;
 }
 
 export default function Question({
   question,
   selectedAnswer,
+  correctAnswerId,
+  isResultPage = false,
   onAnswerChange,
 }: QuestionProps) {
   return (
@@ -22,8 +26,15 @@ export default function Question({
             key={answer.idAnswer}
             answer={answer}
             isSelected={selectedAnswer === answer.idAnswer}
+            isCorrect={isResultPage && answer.idAnswer === correctAnswerId}
+            isIncorrect={
+              isResultPage &&
+              selectedAnswer === answer.idAnswer &&
+              answer.idAnswer !== correctAnswerId
+            }
+            isResultPage={isResultPage}
             onSelect={() =>
-              onAnswerChange(question.idQuestion, answer.idAnswer)
+              onAnswerChange?.(question.idQuestion, answer.idAnswer)
             }
           />
         ))}

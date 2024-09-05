@@ -3,7 +3,6 @@
   background-color: #f1f1f1;
   border: 1px solid #ccc;
   border-radius: 20px;
-  cursor: pointer;
   transition: background-color 0.3s, border-color 0.3s;
 }
 
@@ -11,17 +10,30 @@
   text-transform: capitalize;
 }
 
-.answer.selected {
+.answer.selected.noResultPage {
   border: 2px solid #4f46e5;
   box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
   background-color: #9b96f1;
   color: #ffffff;
 }
 
-.answer:hover,
-.answer.selected:hover {
+.answer.noResultPage:hover,
+.answer.selected.noResultPage:hover {
+  cursor: pointer;
   background-color: #9b96f1;
   color: #ffffff;
+}
+
+.answer.correct {
+  background-color: #badac2;
+  border-color: #a6e3b4;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+.answer.incorrect {
+  background-color: #ffafb6;
+  border-color: #d48a92;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
 }
 
 /*

@@ -6,6 +6,13 @@ export interface UserProfile {
   followingCount: number;
 }
 
+export interface User {
+  idUser: number;
+  nickname: string;
+  email: string;
+  userRole: string;
+}
+
 export interface UserDetails {
   userId: number;
   nickname: string;

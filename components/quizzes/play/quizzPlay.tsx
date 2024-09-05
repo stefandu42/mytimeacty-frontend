@@ -5,7 +5,7 @@ import QuizzService from "@/services/quizzes.service";
 import QuizzPlayService from "@/services/quizzPlay.service";
 import { QuizzWithDetails } from "@/models/quizz";
 import { useRouter } from "next/navigation";
-import { UserAnswerCreate } from "@/models/quizzPlay";
+import { UserAnswerCreate, QuizzPlay } from "@/models/quizzPlay";
 import { toast } from "react-toastify";
 import Question from "@/components/quizzes/play/question";
 import styles from "@/styles/quizzes/play/quizzPlay.module.css";
@@ -63,8 +63,12 @@ export default function QuizzPlayer({ quizzId }: QuizPlayerProps) {
         })
       );
 
-      await QuizzPlayService.submitUserAnswers(quizzId, userAnswerSubmissions);
-      router.push(`/quizzes/${quizzId}/result`);
+      const quizzPlay: QuizzPlay = await QuizzPlayService.submitUserAnswers(
+        quizzId,
+        userAnswerSubmissions
+      );
+
+      router.push(`/quizzes/play/result/${quizzPlay.idQuizzPlay}`);
     } catch (error) {
       toast.error("Failed to submit answers:");
     }

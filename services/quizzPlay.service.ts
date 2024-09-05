@@ -1,4 +1,8 @@
-import { QuizzPlay, UserAnswer, UserAnswerCreate } from "@/models/quizzPlay";
+import {
+  QuizzPlay,
+  QuizzPlayWithAnswer,
+  UserAnswerCreate,
+} from "@/models/quizzPlay";
 import apiClient from "../axiosConfig";
 
 const BASE_URL = "/quizz-play";
@@ -7,9 +11,14 @@ const QuizzPlayService = {
   submitUserAnswers: async (
     quizzId: number,
     userAnswers: UserAnswerCreate[]
-  ): Promise<void> => {
+  ): Promise<QuizzPlay> => {
     try {
-      await apiClient.post(`${BASE_URL}/quizzes/${quizzId}`, userAnswers);
+      const response = await apiClient.post(
+        `${BASE_URL}/quizzes/${quizzId}`,
+        userAnswers
+      );
+
+      return response.data;
     } catch (error) {
       console.error("Error submitting user answers:", error);
       throw new Error("Failed to submit user answers");
@@ -37,15 +46,15 @@ const QuizzPlayService = {
 
   getUserAnswersByQuizzPlay: async (
     quizzPlayId: number
-  ): Promise<UserAnswer[]> => {
+  ): Promise<QuizzPlayWithAnswer> => {
     try {
-      const response = await apiClient.get<UserAnswer[]>(
+      const response = await apiClient.get<QuizzPlayWithAnswer>(
         `${BASE_URL}/${quizzPlayId}/answers`
       );
       return response.data;
     } catch (error) {
-      console.error("Error fetching user answers:", error);
-      throw new Error("Failed to fetch user answers");
+      console.error("Error fetching quizz play with answers:", error);
+      throw new Error("Failed to fetch quizz play with answers");
     }
   },
 };

@@ -1,14 +1,19 @@
+import { User } from "./user";
+
 export interface QuizzPlay {
   idQuizzPlay: number;
   quizzId: number;
-  playerId: number;
+  player: User;
   score: number;
   playedAt: string;
 }
 
+export interface QuizzPlayWithAnswer extends QuizzPlay {
+  userAnswers: UserAnswer[];
+}
+
 export interface UserAnswer {
   idUserAnswer: number;
-  quizzPlayId: number;
   answerId: number;
 }
 
