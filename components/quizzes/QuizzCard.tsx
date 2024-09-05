@@ -10,6 +10,7 @@ import Link from "next/link";
 import { BiSolidCategory } from "react-icons/bi";
 import { IoStatsChart } from "react-icons/io5";
 import Button from "../general/button";
+import Label from "../general/label";
 
 interface QuizzCardProps {
   quizz: QuizzWithLikeAndFavourite;
@@ -62,7 +63,7 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
           <Button
             className={styles.playButton}
             variant="primary"
-            onClick={() => router.push(`/play/${quizz.idQuizz}`)}
+            onClick={() => router.push(`/quizzes/play/${quizz.idQuizz}`)}
           >
             Jouer
           </Button>
@@ -70,17 +71,14 @@ export default function QuizzCard({ quizz }: QuizzCardProps) {
       </div>
       <div className={styles.labelsAndActions}>
         <div className={styles.labels}>
-          <span
-            className={`${styles.label} ${getLevelClass(quizz.level.label)}`}
-          >
-            <IoStatsChart className={styles.icon} />
-            {quizz.level.label}
-          </span>
-          <span className={styles.label}>
-            <BiSolidCategory className={styles.icon} />
-            {quizz.category.label}
-          </span>
+          <Label
+            text={quizz.level.label}
+            icon={<IoStatsChart />}
+            level={quizz.level.label.toLowerCase()}
+          />
+          <Label text={quizz.category.label} icon={<BiSolidCategory />} />
         </div>
+
         <div className={styles.actions}>
           <span className={styles.creator}>
             <Link

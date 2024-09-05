@@ -1,9 +1,25 @@
-import { Quizz, QuizzCreate, QuizzWithLikeAndFavourite } from "@/models/quizz";
-import apiClient from "../axiosConfig"; // Assurez-vous que le chemin est correct
+import {
+  Quizz,
+  QuizzCreate,
+  QuizzWithDetails,
+  QuizzWithLikeAndFavourite,
+} from "@/models/quizz";
+import apiClient from "../axiosConfig";
 
 const BASE_URL = "/quizzes";
 
 const QuizzService = {
+  getQuizzWithDetails: async (quizzId: number): Promise<QuizzWithDetails> => {
+    try {
+      const response = await apiClient.get<QuizzWithDetails>(
+        `${BASE_URL}/${quizzId}`
+      );
+      return response.data;
+    } catch (error) {
+      throw new Error("Failed to fetch quizz details");
+    }
+  },
+
   createQuizz: async (quizzCreate: QuizzCreate): Promise<Quizz> => {
     try {
       const response = await apiClient.post(`${BASE_URL}`, quizzCreate);

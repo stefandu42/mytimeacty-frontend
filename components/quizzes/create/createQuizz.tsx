@@ -12,6 +12,8 @@ import Button from "@/components/general/button";
 import QuestionWithAnswers from "@/components/quizzes/create/questionWithAnswers";
 import styles from "@/styles/quizzes/create/createQuizz.module.css";
 import { CiCirclePlus } from "react-icons/ci";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function CreateQuizz() {
   const [categories, setCategories] = useState<QuizzCategory[]>([]);
@@ -46,10 +48,7 @@ export default function CreateQuizz() {
         setCategories(categoriesData);
         setLevels(levelsData);
       } catch (error) {
-        console.error(
-          "Erreur lors de la récupération des catégories et niveaux:",
-          error
-        );
+        toast.error("Error retrieving categories and levels.");
       }
     };
 
@@ -125,11 +124,35 @@ export default function CreateQuizz() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+
+    if (quizzCreate.levelId === 0) {
+      toast.warning("Please select a level.");
+      return;
+    }
+
+    if (quizzCreate.categoryId === 0) {
+      toast.warning("Please select a category.");
+      return;
+    }
+
+    // Checking if all questions have a correct answer selected
+    const missingCorrectAnswer = quizzCreate.questions.find(
+      (question, index) => !question.answers.some((answer) => answer.isCorrect)
+    );
+
+    if (missingCorrectAnswer) {
+      const questionIndex = quizzCreate.questions.indexOf(missingCorrectAnswer);
+      toast.warning(
+        `Question ${questionIndex + 1} is missing a correct answer.`
+      );
+      return;
+    }
+
     try {
       await QuizzService.createQuizz(quizzCreate);
       router.push(`/quizzes`);
     } catch (error) {
-      console.error("Failed to create quizz:", error);
+      toast.error("Failed to create the quizz, please try again later.");
     }
   };
 

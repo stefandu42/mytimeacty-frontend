@@ -1,0 +1,90 @@
+.quizzPlayer {
+  max-width: 800px;
+  margin: 3% auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 840px) {
+  .quizzPlayer {
+    width: 95%;
+    margin: 20px auto;
+  }
+}
+
+.quizzTitle {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-align: center;
+  font-family: cursive;
+}
+
+.quizzTitle::first-letter {
+  text-transform: capitalize;
+}
+
+.quizzImageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quizzImage {
+  width: 70%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.labelsAndActions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.labels {
+  display: flex;
+  gap: 10px;
+}
+
+.quizzCategory,
+.quizzLevel {
+  font-size: 1.2rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.quizzCreator {
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.quizzCreator a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.quizzCreator a:hover {
+  text-decoration: underline;
+}
+
+.quizzDate {
+  font-size: 1rem;
+  margin: 10px 0;
+  text-align: center;
+  color: #666;
+}
+
+.submitButton {
+  width: 100%;
+  font-size: 1.2rem !important;
+  margin-top: 20px;
+}
+
+.submitButton:hover {
+  background-color: #4f46e5;
+}

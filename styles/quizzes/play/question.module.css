@@ -1,0 +1,19 @@
+.questionContainer {
+  margin-bottom: 20px;
+}
+
+.questionText {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-family: cursive;
+}
+
+.questionText::first-letter {
+  text-transform: capitalize;
+}
+
+.answersContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

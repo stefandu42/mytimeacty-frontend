@@ -1,3 +1,5 @@
+import { Question } from "./question";
+
 export interface QuizzCategory {
   idCategory: number;
   label: string;
@@ -21,6 +23,11 @@ export interface Quizz {
 export interface QuizzWithLikeAndFavourite extends Quizz {
   liked: boolean;
   favourite: boolean;
+}
+
+export interface QuizzWithDetails {
+  quizz: Quizz;
+  questions: Question[];
 }
 
 // Creation

@@ -1,0 +1,28 @@
+.label {
+  display: flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+  text-transform: capitalize;
+  transition: transform 0.2s ease-in-out;
+}
+
+.label:hover {
+  transform: scale(1.1);
+}
+
+.levelEasy {
+  background-color: #4caf50;
+}
+
+.levelMedium {
+  background-color: #ff9800;
+}
+
+.levelHard {
+  background-color: #f44336;
+}
