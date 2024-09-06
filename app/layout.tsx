@@ -4,6 +4,7 @@ import "@/styles/globals.css";
 import ToastProvider from "@/providers/toast.provider";
 import Header from "@/components/header";
 import ReduxProvider from "@/providers/redux.provider";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <ToastProvider>
             <Header />
             {children}
+            <Footer />
           </ToastProvider>
         </ReduxProvider>
       </body>

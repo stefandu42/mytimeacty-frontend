@@ -1,4 +1,4 @@
-import { Pagination } from "@mui/material";
+import { Pagination, useMediaQuery } from "@mui/material";
 
 interface QuizzPaginationProps {
   totalPages: number;
@@ -11,15 +11,32 @@ export default function QuizzPagination({
   currentPage,
   onPageChange,
 }: QuizzPaginationProps) {
+  // Appels des hooks en haut du composant, sans condition
+  const isSmallScreen = useMediaQuery("(max-width:600px)");
+  const isMediumScreen = useMediaQuery(
+    "(min-width:601px) and (max-width:665px)"
+  );
+
+  // Détermination des variables après les hooks
+  let siblingCount = 2;
+
+  if (isSmallScreen) {
+    siblingCount = 0;
+  } else if (isMediumScreen) {
+    siblingCount = 1;
+  }
+
   return (
     <Pagination
-      count={totalPages}
+      count={10}
       page={currentPage}
       onChange={onPageChange}
       color="secondary"
       size="large"
-      showFirstButton
-      showLastButton
+      showFirstButton={!isSmallScreen}
+      showLastButton={!isSmallScreen}
+      siblingCount={siblingCount}
+      boundaryCount={1}
     />
   );
 }
