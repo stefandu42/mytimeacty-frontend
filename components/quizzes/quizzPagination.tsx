@@ -11,13 +11,11 @@ export default function QuizzPagination({
   currentPage,
   onPageChange,
 }: QuizzPaginationProps) {
-  // Appels des hooks en haut du composant, sans condition
   const isSmallScreen = useMediaQuery("(max-width:600px)");
   const isMediumScreen = useMediaQuery(
     "(min-width:601px) and (max-width:665px)"
   );
 
-  // Détermination des variables après les hooks
   let siblingCount = 2;
 
   if (isSmallScreen) {
@@ -28,7 +26,7 @@ export default function QuizzPagination({
 
   return (
     <Pagination
-      count={10}
+      count={totalPages}
       page={currentPage}
       onChange={onPageChange}
       color="secondary"
